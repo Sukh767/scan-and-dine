@@ -11,8 +11,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import bgv from "./bgv.mp4";
 
-// const url = "http://localhost:8080/api/v1";
-const url = 'https://scan-dine-backend-bnj2.onrender.com/api/v1'
+const url = "http://localhost:8080/api/v1";
+// const url = 'https://scan-dine-backend-bnj2.onrender.com/api/v1';
 
 const Dashboard = () => {
   const [restaurant, setRestaurant] = useState(null);
