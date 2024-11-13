@@ -11,10 +11,7 @@ router.route("/:resid/menu/add").post(verifyJWT, authRole, upload.fields([{
     name: 'image',
     maxCount: 3,
 }]), createMenuItem)
-router.route("/:resid/menu/:itemid").put(verifyJWT, authRole, upload.fields([{
-    name: 'image',
-    maxCount: 3,
-}]), updateMenuItem)
+router.route("/:resid/menu/:itemid").put(verifyJWT, authRole , updateMenuItem)
 
 router.route("/:resid/menu/:itemid").patch(verifyJWT, authRole, updateItemToVeg)
 router.route("/:resid/menu/:itemid").delete(verifyJWT, authRole, deleteMenuItem)

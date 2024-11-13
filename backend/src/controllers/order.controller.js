@@ -142,11 +142,13 @@ const updateOrderStatus = asyncHandler(async (req, res) => {
     }
 
     if (order.status === status) {
-        throw new ApiError(402, `Order is already in${order.status}`)
+        throw new ApiError(402, `Order is already in ${order.status}`)
     }
 
-    order.status = status
+
+    order.orderStatus = status;
     await order.save({ validateBeforeSave: false })
+    console.log(order)
 
     return res
         .status(200)

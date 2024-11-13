@@ -3,16 +3,20 @@ import cors from "cors"
 
 const app = express()
 
-const allowedOrigins = [
-  process.env.CORS_ORIGIN,
-  process.env.CORS_ORIGIN2,
-];
+const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
 
 app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
+  cors(corsOptions)
 );
 
 
