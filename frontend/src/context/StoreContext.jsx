@@ -9,8 +9,8 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const [cartItems,setCartItems] = useState({});
-    const url = process.env.BACKEND_URL
-//const url = 'https://scan-dine-backend-bnj2.onrender.com'
+    //const url = process.env.BACKEND_URL
+const url = 'https://scan-dine-backend-bnj2.onrender.com'
 
     const contextValue = {
         menu_list,
